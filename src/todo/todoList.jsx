@@ -1,7 +1,10 @@
 import React from 'react';
 import IconButton from '../template/iconButtom';
 
-export default props => {
+import { connect } from 'react-redux';
+import Todo from './todo';
+
+const TodoList = props => {
 
     const renderRows = () => {
         const list = props.list || [];
@@ -30,3 +33,7 @@ export default props => {
     )
 
 }
+
+const mapStateToProps = state => ({ list: state.todo.list })
+
+export default connect(mapStateToProps)(TodoList)
